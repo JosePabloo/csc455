@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link, withRouter} from 'react-router-dom';
-import { withStyles } from '@material-ui/core/styles';
+\import { makeStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import LanguageIcon from '@material-ui/icons/Language';
@@ -11,35 +11,31 @@ import EmailIcon from '@material-ui/icons/Email';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import TocIcon from '@material-ui/icons/Toc';
 import TrackChangesIcon from '@material-ui/icons/TrackChanges';
-
-const styles = theme =>({
+const useStyles = makeStyles({
     root: {
-        width: "100%",
-        padding: "10px",
-        position: 'fixed',
-        bottom:0,
-        alignItem: "stretch"
-      },
-
-})
-
-
-
+      width: "100%",
+      padding: "10px",
+      position: 'fixed',
+      bottom:0,
+      alignItem: "stretch"
+    },
+  });
 
 class PrimaryNav extends Component {
   state = {
     value: 0,
     pathMap: [
-      '/projects',
-      '/inventory',
-      '/active'
+      '/panoramas',
+      '/members',
+      '/shop',
+      '/about',
+      '/subscribe'
     ]
   };
 
   componentWillReceiveProps(newProps) {
     const {pathname} = newProps.location;
     const {pathMap} = this.state;
-    const { classes } = this.props;
 
     const value = pathMap.indexOf(pathname);
 
@@ -56,7 +52,7 @@ class PrimaryNav extends Component {
 
   render() {
     const {value, pathMap} = this.state;
-    const { classes } = this.props;
+    const classes = useStyles();
 
     return (
       <BottomNavigation
@@ -73,4 +69,4 @@ class PrimaryNav extends Component {
   }
 }
 
-export default withRouter((withStyles(styles)(PrimaryNav)));
+export default withRouter(PrimaryNav);

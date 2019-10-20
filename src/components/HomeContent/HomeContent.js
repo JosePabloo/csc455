@@ -11,8 +11,9 @@ import HomeIcon from '@material-ui/icons/Home';
 import GitHubCircleIcon from 'mdi-material-ui/GithubCircle';
 
 import EmptyState from '../EmptyState';
-
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Dashboard from '../../components/Class/Main'
+import PrimaryNav from '../Class/BottomBar'
 
 const styles = (theme) => ({
   emptyStateIcon: {
@@ -38,7 +39,15 @@ class HomeContent extends Component {
 
     if (signedIn) {
       return (
-        <Dashboard />
+        <Router>
+           <React.Fragment>
+           <Route path="/" component={Dashboard} />   
+        <PrimaryNav/>
+        </React.Fragment>
+          </Router>
+          
+       
+       
       );
     }
 

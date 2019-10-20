@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-
+import BottomBar from '../../components/Class/BottomBar'
 import HomeContent from '../HomeContent';
 import NotFoundContent from '../NotFoundContent';
 
@@ -17,6 +17,7 @@ class Router extends Component {
         <Switch>
           <Route path="/" exact>
             <HomeContent signedIn={signedIn} />
+           
           </Route>
 
           <Route>

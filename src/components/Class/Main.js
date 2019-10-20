@@ -18,7 +18,7 @@ class Dashboard extends Component {
     return (
       <React.Fragment>
         <div align="center">{intro}</div>
-        <BottomBar/>
+   
       </React.Fragment>
     );
   }
