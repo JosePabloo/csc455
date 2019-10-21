@@ -3,15 +3,11 @@ import {Link, withRouter} from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import LanguageIcon from '@material-ui/icons/Language';
-import GroupIcon from '@material-ui/icons/Group';
-import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
-import HelpIcon from '@material-ui/icons/Help';
-import EmailIcon from '@material-ui/icons/Email';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import TocIcon from '@material-ui/icons/Toc';
 import TrackChangesIcon from '@material-ui/icons/TrackChanges';
 
+import Schedule from '../Class/Pages/Inventory'
 const styles = theme =>({
     root: {
         width: "100%",
@@ -39,8 +35,6 @@ class PrimaryNav extends Component {
   componentWillReceiveProps(newProps) {
     const {pathname} = newProps.location;
     const {pathMap} = this.state;
-    const { classes } = this.props;
-
     const value = pathMap.indexOf(pathname);
 
     if (value > -1) {
@@ -66,7 +60,7 @@ class PrimaryNav extends Component {
         className={classes.root}
       >
         <BottomNavigationAction label="Projects" icon={<TrackChangesIcon />} component={Link} to={pathMap[0]} />
-        <BottomNavigationAction label="Inventory" icon={<TocIcon />} component={Link} to={pathMap[1]} />
+        <BottomNavigationAction label="Inventory" icon={<TocIcon />} component={Link} to='/inventory' />
         <BottomNavigationAction label="Active" icon={<LocationOnIcon />} component={Link} to={pathMap[2]} />
         </BottomNavigation>
     );

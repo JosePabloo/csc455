@@ -6,14 +6,23 @@ import { withStyles } from '@material-ui/core/styles';
 
 import Fab from '@material-ui/core/Fab';
 
-import HomeIcon from '@material-ui/icons/Home';
 
 import GitHubCircleIcon from 'mdi-material-ui/GithubCircle';
 
 import EmptyState from '../EmptyState';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, withRouter,Link} from 'react-router-dom';
+
 import Dashboard from '../../components/Class/Main'
-import PrimaryNav from '../Class/BottomBar'
+import Projects from '../Class/Pages/Projects'
+import Inventory from '../Class/Pages/Inventory'
+
+import BottomNavigation from '@material-ui/core/BottomNavigation';
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+
+import TocIcon from '@material-ui/icons/Toc';
+import TrackChangesIcon from '@material-ui/icons/TrackChanges';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+
 
 const styles = (theme) => ({
   emptyStateIcon: {
@@ -26,14 +35,44 @@ const styles = (theme) => ({
 
   buttonIcon: {
     marginRight: theme.spacing(1)
-  }
+  },
+  root: {
+    width: "100%",
+    padding: "10px",
+    position: 'fixed',
+    bottom:0,
+    alignItem: "stretch"
+  },
 });
 
 class HomeContent extends Component {
+  state = {
+    value: 0,
+    pathMap: [
+      '/dashboard',
+      '/projects',
+      '/inventory'
+    ]
+  };
+  componentWillReceiveProps(newProps) {
+    const {pathname} = newProps.location;
+    const {pathMap} = this.state;
+    const value = pathMap.indexOf(pathname);
+
+    if (value > -1) {
+      this.setState({
+        value
+      });
+    }
+  }
+
+  handleChange = (event, value) => {
+    this.setState({ value });
+  };
   render() {
     // Styling
     const { classes } = this.props;
-
+    const {value, pathMap} = this.state;
     // Properties
     const { signedIn } = this.props;
 
@@ -41,8 +80,19 @@ class HomeContent extends Component {
       return (
         <Router>
            <React.Fragment>
-           <Route path="/" component={Dashboard} />   
-        <PrimaryNav/>
+           <Route path="/dashboard" component={Dashboard} />   
+           <Route path="/projects" component={Projects} /> 
+           <Route path="/inventory" component={Inventory} /> 
+           <BottomNavigation
+        value={value}
+        onChange={this.handleChange}
+        showLabels
+        className={classes.root}
+      >
+        <BottomNavigationAction label="Dashboard" icon={<DashboardIcon />} component={Link} to={pathMap[0]} />
+        <BottomNavigationAction label="Projects" icon={<TrackChangesIcon />} component={Link} to={pathMap[1]} />
+        <BottomNavigationAction label="Inventory" icon={<TocIcon />} component={Link} to={pathMap[2]} />
+        </BottomNavigation>
         </React.Fragment>
           </Router>
           
@@ -78,4 +128,6 @@ HomeContent.propTypes = {
   signedIn: PropTypes.bool.isRequired
 };
 
-export default withStyles(styles)(HomeContent);
+
+export default withRouter((withStyles(styles)(HomeContent)));
+

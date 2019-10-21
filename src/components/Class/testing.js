@@ -1,13 +1,9 @@
 import React, {Component} from 'react';
 import {Link, withRouter} from 'react-router-dom';
-\import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import LanguageIcon from '@material-ui/icons/Language';
-import GroupIcon from '@material-ui/icons/Group';
-import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
-import HelpIcon from '@material-ui/icons/Help';
-import EmailIcon from '@material-ui/icons/Email';
+
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import TocIcon from '@material-ui/icons/Toc';
 import TrackChangesIcon from '@material-ui/icons/TrackChanges';
