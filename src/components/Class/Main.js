@@ -12,7 +12,12 @@ class Dashboard extends Component {
     let intro = (
       <div>
         <h2> Welcome to the Dashboard page</h2>
-      </div>
+        <p> Current Project Progress</p>
+        <p> Items that are checked out </p>
+        <p> My ToDo's</p>     
+        <p>Clock in and Out? </p>
+        <p> Time Card info</p>
+       </div>
     );
 
     return (
