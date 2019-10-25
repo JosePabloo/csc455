@@ -2,7 +2,7 @@ const admin = require('firebase-admin');
 
 admin.initializeApp({
   credential: admin.credential.applicationDefault(),
-  databaseURL: 'https://react-material-ui-firebase.firebaseio.com'
+  databaseURL: 'https://softwareclass-cdc25.firebaseio.com'
 });
 
 const auth = admin.auth();

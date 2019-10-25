@@ -17,6 +17,7 @@ class Router extends Component {
         <Switch>
           <Route path="/" exact>
             <HomeContent signedIn={signedIn} />
+           
           </Route>
 
           <Route>
