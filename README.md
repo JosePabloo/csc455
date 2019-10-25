@@ -13,6 +13,14 @@ The command `yarn start` is another Yarn command-line utility which is used to r
 yarn start
 ```
 
+### File Stucture: 
+
+This is where the loading is happing for React JS and where the code lies. Rending is under the homeConetent. 
+```
+SRC > Components > Class 
+```
+
+
 
 ## Attribution
 
