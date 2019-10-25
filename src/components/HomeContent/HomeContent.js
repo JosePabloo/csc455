@@ -106,7 +106,7 @@ class HomeContent extends Component {
         title={process.env.REACT_APP_NAME}
         description="The three musketeers, all in one pack in the form of a boilerplate app"
         button={
-          <Fab className={classes.button} color="secondary" href="https://github.com/Phoqe/react-material-ui-firebase" rel="noopener noreferrer" target="_blank" variant="extended">
+          <Fab className={classes.button} color="secondary" href="https://github.com/JosePabloo/csc455" rel="noopener noreferrer" target="_blank" variant="extended">
             <GitHubCircleIcon className={classes.buttonIcon} />
             GitHub
           </Fab>
