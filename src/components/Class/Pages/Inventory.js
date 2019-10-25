@@ -141,6 +141,22 @@ class Inventory extends Component {
       }
     });
   };
+  handleClose1 = () => {
+    this.setState({
+      checkoutDialog: {
+        open: false
+      }
+    });
+    console.log("Report Damage")
+  };
+  handleClose2 = () => {
+    this.setState({
+      checkoutDialog: {
+        open: false
+      }
+    });
+    console.log("Check out Items")
+  };
 
   render() {
     const { setState, state, checkoutDialog } = this.state;
@@ -168,10 +184,13 @@ class Inventory extends Component {
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
+            <Button onClick={this.handleClose} color="primary" >
               Cancel
             </Button>
-            <Button onClick={this.handleClose} color="primary" autoFocus>
+            <Button onClick={this.handleClose1} color="primary">
+              Report Damage
+            </Button>
+            <Button onClick={this.handleClose2} color="primary" autoFocus>
               Check Out
             </Button>
           </DialogActions>
@@ -197,7 +216,7 @@ class Inventory extends Component {
                   resolve();
                   const data = [this.state.data];
                   data.push(newData);
-                  setState(this.state.data);
+                  setState(...state.data);
                 }, 600);
               }),
             onRowUpdate: (newData, oldData) =>
