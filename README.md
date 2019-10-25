@@ -19,7 +19,8 @@ This is where the loading is happing for React JS and where the code lies. Rendi
 ```
 SRC > Components > Class 
 ```
-
+### Firebase
+Under env. Add your firebase keys,
 
 
 ## Attribution
