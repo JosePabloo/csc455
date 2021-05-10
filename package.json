@@ -8,7 +8,7 @@
     "@material-ui/styles": "^4.4.3",
     "firebase": "^7.2.1",
     "gh-pages": "^2.1.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "material-table": "^1.52.0",
     "mdi-material-ui": "^6.8.0",
     "moment": "^2.24.0",
